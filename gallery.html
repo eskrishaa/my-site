@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея ресурсов - EduResources</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="gallery-header">
+        <div class="header-content">
+            <h1><i class="fas fa-photo-video"></i> Галерея полезных ресурсов</h1>
+            <p class="subtitle">Коллекция образовательных материалов по теме: <span class="theme-name">Самообразование и EdTech</span></p>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="gallery.html" class="nav-link active"><i class="fas fa-photo-video"></i> Галерея</a></li>
+                <li><a href="contacts.html" class="nav-link"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        <!-- Панель управления -->
+        <div class="controls-panel">
+            <div class="stats">
+                <span class="stat-item">
+                    <i class="fas fa-image"></i>
+                    Ресурсов: <span id="image-counter">0</span>
+                </span>
+                <span class="stat-item">
+                    <i class="fas fa-heart"></i>
+                    Всего лайков: <span id="total-likes">0</span>
+                </span>
+            </div>
+            <div class="view-controls">
+                <button id="grid-view" class="view-btn active">
+                    <i class="fas fa-th"></i> Сетка
+                </button>
+                <button id="list-view" class="view-btn">
+                    <i class="fas fa-list"></i> Список
+                </button>
+            </div>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="filters">
+            <h3><i class="fas fa-filter"></i> Фильтры:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="sites">Сайты</button>
+                <button class="filter-btn" data-filter="youtube">YouTube</button>
+                <button class="filter-btn" data-filter="apps">Приложения</button>
+            </div>
+        </div>
+
+        <!-- ГАЛЕРЕЯ С ИСПОЛЬЗОВАНИЕМ CSS GRID -->
+        <div class="gallery-grid" id="image-gallery">
+            <!-- Карточка ресурса 1 - Сайт -->
+            <article class="image-card" data-category="sites">
+                <div class="card-image">
+                    <img src="assets/images/stepik.jpg" alt="Stepik образовательная платформа" class="gallery-img" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Stepik'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="1">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn" onclick="window.open('https://stepik.org', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Stepik</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Бесплатные курсы</p>
+                    <p class="image-description">Платформа с тысячами курсов по программированию, математике, биологии и другим предметам. Сертификаты после завершения.</p>
+                    <div class="image-tags">
+                        <span class="tag">сайт</span>
+                        <span class="tag">программирование</span>
+                        <span class="tag">бесплатно</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка ресурса 2 - YouTube канал -->
+            <article class="image-card" data-category="youtube">
+                <div class="card-image">
+                    <img src="assets/images/vertdider.jpg" alt="Vert Dider YouTube канал" class="gallery-img" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Vert+Dider'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="2">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn" onclick="window.open('https://youtube.com/c/VertDider', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Vert Dider</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Научпоп YouTube</p>
+                    <p class="image-description">Переводы лучших зарубежных научно-популярных видео на русский язык. Физика, космос, биология и многое другое.</p>
+                    <div class="image-tags">
+                        <span class="tag">YouTube</span>
+                        <span class="tag">научпоп</span>
+                        <span class="tag">переводы</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка ресурса 3 - Приложение -->
+            <article class="image-card" data-category="apps">
+                <div class="card-image">
+                    <img src="assets/images/notion.jpg" alt="Notion приложение для заметок" class="gallery-img" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Notion'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="3">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn" onclick="window.open('https://notion.so', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Notion</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Органайзер</p>
+                    <p class="image-description">Всё-в-одном рабочее пространство: заметки, базы данных, планировщики, вики и документация.</p>
+                    <div class="image-tags">
+                        <span class="tag">приложение</span>
+                        <span class="tag">продуктивность</span>
+                        <span class="tag">заметки</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка ресурса 4 - Сайт -->
+            <article class="image-card" data-category="sites">
+                <div class="card-image">
+                    <img src="assets/images/coursera.jpg" alt="Coursera образовательная платформа" class="gallery-img" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Coursera'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="4">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn" onclick="window.open('https://coursera.org', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Coursera</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Курсы от университетов</p>
+                    <p class="image-description">Курсы от ведущих университетов мира: Стэнфорд, Йель, МГУ. Сертификаты и специализации.</p>
+                    <div class="image-tags">
+                        <span class="tag">сайт</span>
+                        <span class="tag">университеты</span>
+                        <span class="tag">сертификаты</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка ресурса 5 - YouTube канал -->
+            <article class="image-card" data-category="youtube">
+                <div class="card-image">
+                    <img src="assets/images/utopia.jpg" alt="Utopia YouTube канал" class="gallery-img" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Utopia'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="5">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn" onclick="window.open('https://youtube.com/c/UtopiaShow', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Utopia Show</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Развлекательный научпоп</p>
+                    <p class="image-description">Интересные факты, разборы мифов, научные эксперименты в увлекательном формате.</p>
+                    <div class="image-tags">
+                        <span class="tag">YouTube</span>
+                        <span class="tag">развлечения</span>
+                        <span class="tag">факты</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка ресурса 6 - Приложение -->
+            <article class="image-card" data-category="apps">
+                <div class="card-image">
+                    <img src="assets/images/anki.jpg" alt="Anki приложение для запоминания" class="gallery-img" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Anki'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="6">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn" onclick="window.open('https://apps.ankiweb.net', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Anki</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Карточки для запоминания</p>
+                    <p class="image-description">Система интервального повторения для изучения языков, медицины, истории и любых других дисциплин.</p>
+                    <div class="image-tags">
+                        <span class="tag">приложение</span>
+                        <span class="tag">языки</span>
+                        <span class="tag">запоминание</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Дополнительный информационный блок (FAQ / Инструкция) -->
+        <aside class="gallery-info">
+            <h3><i class="fas fa-lightbulb"></i> Как использовать эти ресурсы?</h3>
+            <p><strong>Совет 1:</strong> Начните с одного ресурса — не пытайтесь освоить всё сразу. Выберите курс на Stepik или несколько видео на выбранном канале.</p>
+            <p><strong>Совет 2:</strong> Используйте Notion или Anki для заметок и повторения материала.</p>
+            <p><strong>Совет 3:</strong> Ставьте лайки понравившимся ресурсам — это поможет другим студентам!</p>
+            <p class="faq-note"><i class="fas fa-question-circle"></i> Часто задаваемый вопрос: Все ресурсы действительно бесплатны? — Большинство из них имеют бесплатный доступ, некоторые предлагают платные сертификаты.</p>
+        </aside>
+    </main>
+
+    <footer class="gallery-footer">
+        <div class="footer-content">
+            <p><i class="far fa-copyright"></i> Воробьева Ирина, студент 1 курса, 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
